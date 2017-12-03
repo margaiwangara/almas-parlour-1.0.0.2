@@ -6,6 +6,13 @@ $username = 'root';
 $password = '';
 $dbname = 'almas_parlour';
 
+/*These are the variables for the host db
+$host = 'hpone.hostpoa.com';
+$username = 'almaspar_margai';
+$password = 'Washiali6564';
+$dbname = 'almaspar_almas_parlour';
+*/
+
 $conn = mysqli_connect($host, $username,$password,$dbname);
 if($conn)
 {
