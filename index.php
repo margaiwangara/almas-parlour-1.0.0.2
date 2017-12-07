@@ -11,7 +11,7 @@ include_once 'index-backend.php';
 <title>Alma's Parlour - Beauty Products, Shoes, Clothing</title>
 
 <div class="items-list container">
-    <div class="table-responsive">
+    <div class="table table-condensed">
         <table class="table items-new-arrivals">
             <thead>
             <tr>
@@ -20,26 +20,33 @@ include_once 'index-backend.php';
             </thead>
             <tbody>
             <tr>
-                <?php
-                    for($i=0;$i<$new_arrivals_rows;$i++)
-                        echo "<td><a href='display-item.php?item_id=new-arrival-".$new_arrivals_id [$i]."' target='_blank'><img src='".$new_arrivals_image[$i]."'alt='newarr-image-".($i+1)."'height='150' width='150'/></a></td>";
-
-                ?>
+                <?php foreach($new_arrivals_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=new-arrival-<?php echo $new_arrivals_id[$key];?>">
+                        <img src="<?php echo $new_arrivals_image[$key];?>" alt="newarr-image-<?php echo ($key+1);?>" height="150" width="150"/>
+                    </a>
+                </td>
+                <?php endforeach;?>
+            </tr>
                 <!--<td><img src="images/image-test.JPG" alt="item-image1" height="150" width="150"/></td>-->
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                    for($i=0;$i<$new_arrivals_rows;$i++)
-                        echo "<td><a href='display-item.php?item_id=new-arrival-".$new_arrivals_id [$i]."' target ='_blank'>".$new_arrivals_name[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach ($new_arrivals_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=new-arrival-<?php echo $new_arrivals_id[$key];?>">
+                       <?php echo $new_arrivals_name[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                    for($i=0;$i<$new_arrivals_rows;$i++)
-                        echo "<td><a href='display-item.php?item_id=new-arrival-".$new_arrivals_id [$i]."' target='_blank'> Kshs. ".$new_arrivals_price[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($new_arrivals_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=new-arrival-<?php echo $new_arrivals_id[$key];?>">
+                        Kshs. <?php echo $new_arrivals_price[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
             </tbody>
         </table>
@@ -63,25 +70,31 @@ include_once 'index-backend.php';
             </thead>
             <tbody>
             <tr>
-                <?php
-                    for($i=0;$i<$cosmetics_row;$i++)
-                        echo "<td><a href='display-item.php?item_id=item-cosmetics-".$cosmetics_id [$i]."' target='_blank'><img src='".$cosmetics_image[$i]."'alt='cosmetics-image-".($i+1)."'height='150' width='150'/></a></td>";
-
-                ?>
+                <?php foreach($cosmetics_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-cosmetics-<?php echo $cosmetics_id[$key];?>">
+                        <img src="<?php echo $cosmetics_image[$key];?>" alt="cosmetics-image-<?php echo ($key+1);?>" height="150" width="150"/>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                    for($i=0;$i<$cosmetics_row;$i++)
-                        echo "<td><a href='display-item.php?item_id=item-cosmetics-".$cosmetics_id [$i]."' target='_blank'>".$cosmetics_name[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($cosmetics_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-cosmetics-<?php echo $cosmetics_id[$key];?>">
+                        <?php echo $cosmetics_name[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                    for($i=0;$i<$cosmetics_row;$i++)
-                        echo "<td><a href='display-item.php?item_id=item-cosmetics-".$cosmetics_id [$i]."' target='_blank'>Kshs. ".$cosmetics_price[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($cosmetics_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-cosmetics-<?php echo $cosmetics_id[$key];?>">
+                        Kshs. <?php echo $cosmetics_price[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
             </tbody>
         </table>
@@ -93,25 +106,31 @@ include_once 'index-backend.php';
             </thead>
             <tbody>
             <tr>
-                <?php
-                    for($i=0;$i<$nightgowns_row;$i++)
-                        echo "<td><a href='display-item.php?item_id=new-arrival-".$nightgowns_id [$i]."' target='_blank'><img src='".$nightgowns_image[$i]."'alt='nightgown-image-".($i+1)."'height='150' width='150'/></a></td>";
-
-                ?>
+                <?php foreach($nightgowns_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-ng-<?php echo $nightgowns_id[$key];?>">
+                        <img src="<?php echo $nightgowns_image[$key];?>" alt="nightgown-image-<?php echo ($key+1);?>" height="150" width="150"/>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                    for($i=0;$i<$nightgowns_row;$i++)
-                        echo "<td><a href='display-item.php?item_id=new-arrival-".$nightgowns_id [$i]."' target='_blank'>".$nightgowns_name[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach ($nightgowns_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-ng-<?php echo $nightgowns_id[$key];?>">
+                        <?php echo $nightgowns_name[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                for($i=0;$i<$nightgowns_row;$i++)
-                    echo "<td><a href='display-item.php?item_id=new-arrival-".$nightgowns_id [$i]."' target='_blank'>Kshs. ".$nightgowns_price[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($nightgowns_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-ng-<?php echo $nightgowns_id[$key];?>">
+                        Kshs. <?php echo $nightgowns_price[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
             </tbody>
         </table>
@@ -123,25 +142,31 @@ include_once 'index-backend.php';
             </thead>
             <tbody>
             <tr>
-                <?php
-                for($i=0;$i<$jumpsuits_row;$i++)
-                    echo "<td><a href='display-item.php?item_id=new-arrival-".$jumpsuits_id [$i]."' target='_blank'><img src='".$jumpsuits_image[$i]."'alt='jumpsuit-image-".($i+1)."'height='150' width='150'/></a></td>";
-
-                ?>
+                <?php foreach($jumpsuits_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-js-<?php echo $jumpsuits_id[$key];?>">
+                        <img src="<?php echo $jumpsuits_image[$key];?>" alt="jumpsuit-image-<?php echo ($key+1);?>" height="150" width="150"/>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                for($i=0;$i<$jumpsuits_row;$i++)
-                    echo "<td><a href='display-item.php?item_id=new-arrival-".$jumpsuits_id [$i]."' target='_blank'>".$jumpsuits_name[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($jumpsuits_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-js-<?php echo $jumpsuits_id[$key];?>">
+                        <?php echo $jumpsuits_name[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                for($i=0;$i<$jumpsuits_row;$i++)
-                    echo "<td><a href='display-item.php?item_id=new-arrival-".$jumpsuits_id [$i]."' target='_blank'>Kshs. ".$jumpsuits_price[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($jumpsuits_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-js-<?php echo $jumpsuits_id[$key];?>">
+                        Kshs. <?php echo $jumpsuits_price[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
             </tbody>
         </table>
@@ -153,25 +178,31 @@ include_once 'index-backend.php';
             </thead>
             <tbody>
             <tr>
-                <?php
-                for($i=0;$i<$dresses_row;$i++)
-                    echo "<td><a href='display-item.php?item_id=item-dress-".$dresses_id [$i]."' target='_blank'><img src='".$dresses_image[$i]."'alt='dress-image-".($i+1)."'height='150' width='150'/></a></td>";
-
-                ?>
+                <?php foreach($dresses_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-dress-<?php echo $dresses_id[$key];?>">
+                        <img src="<?php echo $dresses_image[$key];?>" alt="dress-image-<?php echo ($key+1);?>" height="150" width="150"/>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                for($i=0;$i<$dresses_row;$i++)
-                    echo "<td><a href='display-item.php?item_id=item-dress-".$dresses_id [$i]."' target='_blank'>".$dresses_name[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($dresses_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-dress-<?php echo $dresses_id[$key];?>">
+                        <?php echo $dresses_name[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
-            <tr class="font-weight-bold">
-                <?php
-                for($i=0;$i<$dresses_row;$i++)
-                    echo "<td><a href='display-item.php?item_id=item-dress-".$dresses_id [$i]."' target='_blank'>Kshs. ".$dresses_price[$i]."</a></td>";
-
-                ?>
+            <tr>
+                <?php foreach($dresses_id as $key=>$value):?>
+                <td>
+                    <a href="display-item.php?item_id=item-dress-<?php echo $dresses_id[$key];?>">
+                        Kshs. <?php echo $dresses_price[$key];?>
+                    </a>
+                </td>
+                <?php endforeach;?>
             </tr>
             </tbody>
         </table>

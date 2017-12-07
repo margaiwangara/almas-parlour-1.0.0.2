@@ -15,135 +15,276 @@
     <schema id="9" parent="1" name="mystore"/>
     <schema id="10" parent="1" name="new_db"/>
     <table id="11" parent="2" name="admin_info"/>
-    <table id="12" parent="2" name="items_list"/>
-    <table id="13" parent="2" name="user_registration"/>
-    <column id="14" parent="11" name="admin_id">
+    <table id="12" parent="2" name="cart_basket"/>
+    <table id="13" parent="2" name="fav_items"/>
+    <table id="14" parent="2" name="items_list"/>
+    <table id="15" parent="2" name="messages"/>
+    <table id="16" parent="2" name="user_registration"/>
+    <column id="17" parent="11" name="admin_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="15" parent="11" name="username">
+    <column id="18" parent="11" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="11" name="password">
+    <column id="19" parent="11" name="password">
       <Position>3</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="17" parent="11" name="date_created">
+    <column id="20" parent="11" name="date_created">
       <Position>4</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <key id="18" parent="11" name="PRIMARY">
+    <key id="21" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>admin_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="19" parent="12" name="item_id">
+    <column id="22" parent="12" name="cart_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="20" parent="12" name="item_code">
+    <column id="23" parent="12" name="user_id">
+      <Position>2</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="12" name="item_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="12" name="quantity">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="12" name="cart_date">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="27" parent="12" name="status">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="12" name="item_price">
+      <Position>7</Position>
+      <DataType>decimal(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="29" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>cart_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="13" name="fav_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="13" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="13" name="item_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="13" name="fav_date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="34" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fav_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="14" name="item_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="14" name="item_code">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="12" name="item_name">
+    <column id="37" parent="14" name="item_name">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="12" name="type">
+    <column id="38" parent="14" name="type">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="12" name="description">
+    <column id="39" parent="14" name="description">
       <Position>5</Position>
       <DataType>longtext|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="24" parent="12" name="additional_info">
+    <column id="40" parent="14" name="additional_info">
       <Position>6</Position>
       <DataType>longtext|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="25" parent="12" name="color">
+    <column id="41" parent="14" name="color">
       <Position>7</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="26" parent="12" name="image_path">
+    <column id="42" parent="14" name="image_path">
       <Position>8</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="27" parent="12" name="item_price">
+    <column id="43" parent="14" name="item_price">
       <Position>9</Position>
       <DataType>decimal(10,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="28" parent="12" name="upload_date">
+    <column id="44" parent="14" name="item_size">
       <Position>10</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="14" name="item_quantity">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="14" name="upload_date">
+      <Position>12</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <key id="29" parent="12" name="PRIMARY">
+    <key id="47" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>item_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="30" parent="13" name="user_id">
+    <column id="48" parent="15" name="msg_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="31" parent="13" name="email">
+    <column id="49" parent="15" name="sender_id">
       <Position>2</Position>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="13" name="password">
+    <column id="50" parent="15" name="receiver_id">
       <Position>3</Position>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="33" parent="13" name="confirm_code">
+    <column id="51" parent="15" name="message">
+      <Position>4</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="15" name="msg_status">
+      <Position>5</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="15" name="send_date">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="54" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>msg_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="16" name="user_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="56" parent="16" name="name">
+      <Position>2</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="16" name="surname">
+      <Position>3</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="16" name="email">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="13" name="confirmed">
+    <column id="59" parent="16" name="password">
       <Position>5</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="35" parent="13" name="pass_reset_code">
+    <column id="60" parent="16" name="city">
       <Position>6</Position>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="36" parent="13" name="pass_reset_confirmed">
+    <column id="61" parent="16" name="adress_name">
       <Position>7</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="16" name="adress">
+      <Position>8</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="16" name="confirm_code">
+      <Position>9</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="37" parent="13" name="creation_date">
-      <Position>8</Position>
+    <column id="64" parent="16" name="confirmed">
+      <Position>10</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="16" name="pass_reset_code">
+      <Position>11</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="16" name="pass_reset_confirmed">
+      <Position>12</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="16" name="creation_date">
+      <Position>13</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <key id="38" parent="13" name="PRIMARY">
+    <key id="68" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>

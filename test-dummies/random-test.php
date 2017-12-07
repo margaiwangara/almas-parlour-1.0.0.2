@@ -31,7 +31,10 @@ else
     echo "Failed";
 */
 
+/*
 $trial = "margai";
 $trial =substr($trial,3);
 echo $trial;
+*/
+
 ?>

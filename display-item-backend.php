@@ -26,6 +26,8 @@ if(mysqli_num_rows(($get_item_info))> 0)
     $item_image_path = $all_info['image_path'];
     $item_price = $all_info['item_price'];
     $item_upload_data = $all_info['upload_date'];
+    $item_size = $all_info['item_size'];
+    $item_quantity = $all_info['item_quantity'];
 
 
 }
