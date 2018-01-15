@@ -42,7 +42,7 @@ include_once __DIR__.'/../include/admin.master.products.php';
                 </div>
             </div>
             <div class="input-group-btn">
-                <a href='../display-item.php?item_id=view-product-<?php echo $products_id[$key];?>' target ='_blank'>
+                <a href='../view/display-item.php?item_id=view-product-<?php echo $products_id[$key];?>' target ='_blank'>
                     <div class="btn btn-default" type="button">
                         <span class="fa fa-eye"></span> View
                     </div>

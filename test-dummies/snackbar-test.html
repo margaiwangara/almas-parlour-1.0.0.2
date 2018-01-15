@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Title</title>
+    <style>
+        .snackbar-class
+        {
+            display: none;
+            min-width: 250px;
+            margin-left: -125px;
+            background: #004085;
+            color: white;
+            text-align: center;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+        }
+    </style>
+    <script>
+        $(document).ready(function()
+        {
+            $(".show-snackbar").on('click',function()
+            {
+                $(".snackbar-class").fadeIn(1000).fadeOut(10000);
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div class="snackbar-class">
+    This is a snackbar
+</div>
+<div class="button">
+    <button type="button" class="show-snackbar">
+        Click Me!
+    </button>
+</div>
+
+</body>
+</html>

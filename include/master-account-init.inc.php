@@ -1,3 +1,12 @@
+<?php
+if(session_status() == PHP_SESSION_NONE)
+    //session start
+    session_start();
+
+if(isset($_SESSION['USER_EMAIL']))
+    header("Location: index.php");
+
+?>
 <!doctype html>
 <html lang="en">
 <head>

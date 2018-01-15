@@ -5,11 +5,12 @@ $(document).ready(function()
 
     $("#add-to-cart").on('click',function(e)
     {
+        alert("I am a cart appender");
         user_id = $("#user_id").val();
         if(user_id != false)
         {
             $.ajax({
-                url:'../almas-parlour/cart-display.php',
+                url:'../almas-parlour/behind-scenes/cart-append.php',
                 type:'GET',
                 dataType:'html',
                 data:{'user_id':user_id},
@@ -33,7 +34,7 @@ $(document).ready(function()
         if(user_id != false)
         {
             $.ajax({
-                url:'../almas-parlour/cart-display.php',
+                url:'/almas-parlour/behind-scenes/cart-display.php',
                 dataType:'html',
                 data:{'user_id':user_id},
 
@@ -44,7 +45,7 @@ $(document).ready(function()
                 },
                 error:function(xhr, ajaxOptions, thrownError)
                 {
-                    //alert(xhr.status);
+                    alert(xhr.status);
                 }
             });
         }
