@@ -20,7 +20,7 @@ $(document).ready(function()
 
     }
 
-    setInterval(cart_no_polling,100);
+    setInterval(cart_no_polling,500);
 
 });
 

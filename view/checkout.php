@@ -16,7 +16,7 @@ include_once __DIR__."/../include/master.inc.php";
     <div class="main-content">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="title"><span class="text"><strong>checkout</strong> process</span></h4>
+                <h4 class="title"><span class="text"><strong>ACCOUNT AND BILLING</strong> process</span></h4>
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -117,7 +117,7 @@ include_once __DIR__."/../include/master.inc.php";
                                     <div class="panel panel-default">
                                         <div class="panel-heading text-right">
                                             <h4><strong>Transaction Summary</strong></h4>
-                                            <p><strong>No of items: </strong><?php if(isset($_SESSION['NO_OF_CART_ITEMS'])) echo $_SESSION['NO_OF_CART_ITEMS'];?></p>
+                                            <p><strong>No of items: </strong><span class="item-count"></span></p>
                                             <p><strong>Total Price:</strong></p>
                                             <p style="font-size: large;">Kshs. <?php if(isset($_SESSION['TOTAL_PRICE']))echo $_SESSION['TOTAL_PRICE'];?></p>
                                             <button class="btn btn-primary btn-lg">Pay Now With Paypal</button>

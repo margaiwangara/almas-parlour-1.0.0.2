@@ -1,5 +1,5 @@
 <div class="list-group">
-    <a href="/../almas-parlour/view/user-info.php" class="list-group-item">Favourites <span class="badge"><?php if(isset($_SESSION['FAVOURITES']))echo $_SESSION['FAVOURITES'];else echo "0";?></span></a>
+    <a href="/../almas-parlour/view/user-info.php" class="list-group-item">Favourites <span class="badge fav-item-count"></span></a>
     <a href="#" class="list-group-item">Coupons <span class="badge">0</span></a>
     <a href="#" class="list-group-item">Purchased <span class="badge">0</span></a>
     <a href="#" class="list-group-item">Cancelled Transactions <span class="badge">0</span></a>

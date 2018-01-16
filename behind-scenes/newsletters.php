@@ -5,7 +5,7 @@ if(session_status() == PHP_SESSION_NONE)
     session_start();
 
 //add db
-require_once 'include/connect-db.inc.php';
+require_once __DIR__.'/../include/connect-db.inc.php';
 
 $newsletters_message = FALSE;
 

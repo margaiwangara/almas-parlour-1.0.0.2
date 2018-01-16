@@ -63,6 +63,10 @@ $member =
     <!--product handler javascript-->
     <script src="/../almas-parlour/js/show-incart.js" type="text/javascript"></script>
     <script src="/../almas-parlour/js/cart-append.js" type="text/javascript"></script>
+    <script src="/../almas-parlour/js/fav-total.js" type="text/javascript"></script>
+    <script src="/../almas-parlour/js/display-append.js" type="text/javascript"></script>
+    <script src="/../almas-parlour/js/fav-item.js" type="text/javascript"></script>
+
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

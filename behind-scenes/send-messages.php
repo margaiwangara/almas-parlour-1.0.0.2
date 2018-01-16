@@ -1,7 +1,7 @@
 <?php
 
 //connect db
-require_once 'include/connect-db.inc.php';
+require_once __DIR__.'/../include/connect-db.inc.php';
 
 
 if($_SERVER['REQUEST_METHOD'] == 'GET')
@@ -33,16 +33,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
                 //send message
                 $send_message = mysqli_query($conn, "INSERT INTO messages(sender_id, receiver_id, message, msg_status) VALUES ('$sender_id','$receiver_id','$message','$msg_status')");
                 if($send_message)
-                    echo "<script>alert('Message sent successfully');setTimeout(function(){window.location.replace('contact-us.php');},2000);</script>";
+                    echo "<script>alert('Message sent successfully');setTimeout(function(){window.location.replace('/../almas-parlour/view/contact-us.php');},2000);</script>";
                 else
-                    echo "<script>alert('Message not sent');setTimeout(function(){window.location.replace('contact-us.php');},2000)</script>";
+                    echo "<script>alert('Message not sent');setTimeout(function(){window.location.replace('/../almas-parlour/view/contact-us.php');},2000)</script>";
             }
 
 
         }
     }
     else
-        echo "<script>alert('You are not logged in. Please log in to send message');setTimeout(function(){window.location.replace('contact-us.php')},2000);</script>";
+        echo "<script>alert('You are not logged in. Please log in to send message');setTimeout(function(){window.location.replace('/../almas-parlour/view/contact-us.php')},2000);</script>";
 
 
 

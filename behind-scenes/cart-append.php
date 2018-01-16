@@ -71,7 +71,12 @@ if(isset($_SESSION['USER_EMAIL'])) {
                     //update db
                     $exist_query = mysqli_query($conn, "UPDATE cart_basket SET quantity='$exist_quantity',item_price='$exist_price' WHERE user_id = '$user_id' AND item_id = '$item_id'") or trigger_error("Carterising Update failed");
                     if (mysqli_affected_rows($conn) == 1)
+                    {
                         $append_message = "Item updated in cart";
+
+                        //update item list
+                        mysqli_query($conn, "UPDATE items_list SET item_quantity = '$new_quantity' WHERE item_id='$item_id'") or trigger_error("Failed to update quantity");
+                    }
                     else
                         $append_message = "Item has not been added to cart due to a system error. Please try again";
                 } else {

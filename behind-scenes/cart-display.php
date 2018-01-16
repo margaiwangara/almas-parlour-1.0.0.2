@@ -15,7 +15,7 @@ if(isset($_SESSION['USER_EMAIL']))
 {
     $cart_show_user_id = $_SESSION['USER_ID'];
 
-    $cart_show_query = mysqli_query($conn, "SELECT *,cart_basket.item_price new_price,cart_basket.item_id,items_list.item_name,items_list.image_path,items_list.item_price old_price,cart_basket.quantity FROM cart_basket 
+    $cart_show_query = mysqli_query($conn, "SELECT cart_basket.item_price new_price,cart_basket.item_id,items_list.item_name,items_list.image_path,items_list.item_price old_price,cart_basket.quantity FROM cart_basket 
                         INNER JOIN items_list ON cart_basket.item_id = items_list.item_id WHERE cart_basket.user_id = '$cart_show_user_id' ORDER BY cart_date DESC")
                         or trigger_error("Cart acquisition error");
     if(mysqli_affected_rows($conn) > 0)
@@ -33,6 +33,8 @@ if(isset($_SESSION['USER_EMAIL']))
             $cart_show_quantity [] = $cart_data['quantity'];
 
             $total_price += $cart_data['new_price'];
+            $total_price = number_format((float)$total_price,2,'.','');
+
         }
 
         $_SESSION['TOTAL_PRICE'] = $total_price;

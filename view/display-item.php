@@ -46,8 +46,8 @@ if($dp_message)
                 </div>
             </div>
             <div class="row slider-children" id="slider-thumbs">
-                <div class="col-md-12">
-                    <div class="thumbnails">
+                <div class="col-md-11">
+                    <div class="thumbnails" style="margin-left: -15px;margin-right: -15px;">
                         <div class="col-md-4">
                             <a class="thumbnail" id="carousel-selector-3">
                                 <img src="<?php echo $item_image_path;?>" alt="img-thumb-1"/>
@@ -69,20 +69,15 @@ if($dp_message)
         </div>
         <div class="col-md-4">
             <div class="item-info-display" style="margin-top: 10px;">
-                <form action="" method="post">
+                <form action="/../almas-parlour/behind-scenes/favs-process.php" method="post">
                 <table class="table table-striped">
                     <tr>
                         <td></td>
                         <td>
+                            <button type="button" class="btn btn-primary btn-sm" id="fav-button">
+                                <span class="glyphicon glyphicon-heart"></span>
+                            </button>
                             <input type="hidden" value="<?php echo $item_id_num;?>" id="fav_item_id"/>
-                            <a href="#" id="fav-link">
-                                <?php
-                                    if($item_count > 0)
-                                        echo "<span class='glyphicon glyphicon-heart'></span><font style='font-family:Cambria;'> Remove from favourites</font>";
-                                    else
-                                        echo "<span class='glyphicon glyphicon-heart-empty'></span><font style='font-family:Cambria;'> Add to favourites</font>";
-                                ?>
-                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -126,7 +121,7 @@ if($dp_message)
                         <th>Item Quantity</th>
                         <td>
                             <div class="quantity-control">
-                                <input type="number" min="1" name="item_quantity" id="display_quantity" class="form-control input-sm" value="1"/>
+                                <input type="number" min="1" max="<?php echo $item_quantity;?>" name="item_quantity" id="display_quantity" class="form-control input-sm" value="1"/>
                             </div>
 
                         </td>

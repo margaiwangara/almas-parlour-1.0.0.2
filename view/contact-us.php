@@ -47,7 +47,7 @@ include_once __DIR__.'/../include/master.inc.php';
             </div>
             <div class="col-md-6">
                 <div class="well">
-                    <form action="../behind-scenes/send-messages.php" method="get">
+                    <form action="/../almas-parlour/behind-scenes/send-messages.php" method="get" autocomplete="off">
                         <div class="form-group">
                             <input type="text" class="form-control" name="user_name" id="user_name_id" placeholder="Name"/>
                         </div>

@@ -2,7 +2,7 @@ $(document).ready(function()
 {
     //get_favs();
 
-   $("#fav-link").on('click',function (e)
+   $("#fav-button").on('click',function (e)
    {
        e.preventDefault();
 
@@ -11,16 +11,17 @@ $(document).ready(function()
        if(item_id != false)
        {
            $.ajax({
-               url:'../almas-parlour/behind-scenes/set-delete-favs.php',
-               type:'GET',
-               dataType:'html',
+               url:'/../almas-parlour/behind-scenes/favs-process.php',
+               type:'POST',
+               dataType:'json',
                data:{'fav_item_id':item_id},
 
                success: function(data)
                {
-                   alert(data);
-                   //$('#fav-link').html("<span class='glyphicon glyphicon-heart'></span>Remove from cart");
+                   var result = data.fav_sd;
+                   var result2 = data.identifier;
 
+                   $(".snackbar").html(result).fadeIn().fadeOut(3000);
                },
                error:function(xhr, ajaxOptions, thrownError)
                {

@@ -4,7 +4,7 @@
 session_start();
 
 //db
-require_once 'include/connect-db.inc.php';
+require_once __DIR__.'/../include/connect-db.inc.php';
 
 if(isset($_SESSION['USER_EMAIL']))
 {

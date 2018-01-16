@@ -9,12 +9,24 @@ require_once __DIR__.'/../include/connect-db.inc.php';
 
 //total favourites initialization
 $total_fav_count = 0;
-$liked_id = FALSE;
+$liked_id = $total_fav_message = FALSE;
+
 
 if(isset($_SESSION['USER_EMAIL']))
 {
 
-    $fav_user_id = $_SESSION['USER_ID'];
+    if(isset($_SESSION['USER_ID']))
+    {
+        if(preg_match('%^[1-9][0-9]{0,10}$%',stripslashes(trim($_SESSION['USER_ID']))))
+        {
+            $fav_user_id = clean_input($_SESSION['USER_ID']);
+        }
+        else
+        {
+            $fav_user_id = FALSE;
+            $total_fav_message = "Invalid data entry";
+        }
+    }
 
     $set_time = 0;
     $currnt_time = time();
@@ -32,7 +44,7 @@ if(isset($_SESSION['USER_EMAIL']))
             $time_new = 0;
 
             $liked_id [] = $liked_coll['item_id'];
-            $liked_image [] = $liked_coll['image_path'];
+            $liked_image [] = "/../almas-parlour/".$liked_coll['image_path'];
             $liked_name [] = $liked_coll['item_name'];
             $liked_type [] = $liked_coll['type'];
             $liked_price [] = $liked_coll['item_price'];
@@ -52,6 +64,7 @@ if(isset($_SESSION['USER_EMAIL']))
         $total_fav_count = mysqli_num_rows($fav_query);
         $_SESSION['FAVOURITES'] = $total_fav_count;
     }
+   // echo json_encode(array('fav_total'=>$total_fav_count));
 }
 
 ?>

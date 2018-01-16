@@ -1,14 +1,14 @@
 <?php
 
 //include master file
-include_once "include/master.inc.php";
+include_once __DIR__."/../include/master.inc.php";
 ?>
 
 <title>Alma's Parlour - Terms And Conditions</title>
 <div class="container" id="wrapper">
     <?php
         //include navbar
-        include_once "include/navbar.inc.php";
+        include_once __DIR__."/../include/navbar.inc.php";
 
     ?>
     <div class="row">

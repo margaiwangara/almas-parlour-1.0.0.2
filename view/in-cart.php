@@ -9,6 +9,9 @@ include_once __DIR__."/../behind-scenes/cart-display.php";
 //include uncart file
 include_once __DIR__."/../behind-scenes/un-cart.php";
 
+//include most sold
+include_once __DIR__.'/../behind-scenes/most-sold.php';
+
 ?>
 <title>Alma's Parlour - Shopping Cart</title>
 <div class="container" id="wrapper">
@@ -17,22 +20,32 @@ include_once __DIR__."/../behind-scenes/un-cart.php";
         //navigation
         include_once __DIR__."/../include/navbar.inc.php";
 
-        if(!isset($_SESSION['USER_EMAIL']))
-           echo "<style>.main-content{display:none;}</style><h4><strong>".$cart_message."</strong></h4>";
-
     ?>
     <div class="main-content">
         <div class="row">
             <div class="col-md-12">
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
                 <h4 class="title"><span class="text"><strong>SHOPPING</strong> Cart</span></h4>
+
+                <?php
+                    //hide form if there is no items or if is not member
+                    if(!isset($_SESSION['USER_EMAIL']) || $noOfItems < 1):
+                ?>
+                    <style>#cart_form{display:none;}</style>
+
+                    <h4 class="text-center">
+                        <strong>
+                            <?php if(isset($_SESSION['USER_EMAIL'])) echo "Hello ".substr($_SESSION['USER_EMAIL'],0,strpos($_SESSION['USER_EMAIL'],'@')).", ".$cart_message;else echo $cart_message;?>
+                        </strong>
+                    </h4>
+                <?php endif;?>
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" id="cart_form">
                 <div class="row">
                     <?php if(isset($_SESSION['USER_EMAIL']) && !empty($cart_show_item_id)):foreach($cart_show_item_id as $key=>$value):?>
                     <div class="col-md-9" style="border: outset lightgray 1px;margin-left: 5px;margin-right: 5px;border-left: none;border-right: outset lightgray 1px;padding:5px 2px 0 0;">
                         <div class="col-md-2">
                             <div class="checkbox">
-                                <label><input type="checkbox" value="1" name="uncart_checker">Remove</label>
-                                <input type="hidden" value="<?php echo $cart_show_item_id[$key];?>" name="cart_item_id"/>
+                                <label><input type="checkbox" value="<?php echo $cart_show_item_id[$key];?>" name="uncart_checker[]">Remove</label>
+                                <input type="hidden" value="<?php echo $cart_show_item_id[$key];?>" name="cart_item_id[]"/>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -52,7 +65,7 @@ include_once __DIR__."/../behind-scenes/un-cart.php";
                             </p>
                         </div>
                         <div class="col-md-2">
-                            <input type="number" value="<?php echo $cart_show_quantity[$key];?>" class="form-control" min="1" name="uncart_quantity"/>
+                            <input type="number" value="<?php echo $cart_show_quantity[$key];?>" class="form-control" min="1" name="uncart_quantity[]"/>
                         </div>
                         <div class="col-md-1">
                             <p>
@@ -109,15 +122,42 @@ include_once __DIR__."/../behind-scenes/un-cart.php";
                 <div class="row">
                     <div class="col-md-9">
                         <div class="text-left">
-                            <button type="submit" class="btn btn-primary<?php if($_SESSION['NO_OF_CART_ITEMS'] < 1):?>" disabled <?php endif;?> name="update-cart">Update</button>
+                            <button type="submit" class="btn btn-primary" name="update_cart">Update</button>
                             <button type="button" class="btn btn-default"><a href="item-dresses.php">Shop More</a></button>
-                            <a href="checkout.php"><button type="button" class="btn btn-success<?php if($_SESSION['NO_OF_CART_ITEMS'] < 1):?>" disabled <?php endif;?> name="cart-checkout">Checkout</button></a>
+                            <a href="checkout.php"><button type="button" class="btn btn-success" name="cart-checkout">Checkout</button></a>
                             <span class="uncart-message" style="color: red;font-weight: bold;"><?php echo $update_cart_message;?></span>
                         </div>
                     </div>
                 </div>
                 <hr>
                 </form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="title"><span class="text"><strong>most sold</strong> items</span></h4>
+                        <div class="item">
+                            <div class="row">
+                                <?php if($ms_id):foreach(array_reverse($ms_id,true) as $key=>$value):?>
+                                    <div class="col-md-3">
+                                        <div class="product-box">
+                                            <a href="/../almas-parlour/view/display-item.php?ic=<?php echo md5($ms_id[$key]);?>-<?php echo $ms_id[$key];?>" class="thumbnail">
+                                                <img src="<?php echo $ms_image[$key];?>" alt="product-image-<?php echo md5($ms_id[$key]);?>"/>
+                                            </a>
+                                            <a href="/../almas-parlour/view/display-item.php?ic=<?php echo md5($ms_id[$key]);?>-<?php echo $ms_id[$key];?>" class="title">
+                                                <?php echo $ms_name[$key];?>
+                                            </a><br/>
+                                            <a href="/../almas-parlour/view/display-item.php?ic=<?php echo md5($ms_id[$key]);?>-<?php echo $ms_id[$key];?>" class="category">
+                                                <?php echo $ms_type[$key];?>
+                                            </a>
+                                            <p class="price">Kshs. <?php echo $ms_price[$key];?></p>
+                                        </div>
+                                    </div>
+                                    <?php endforeach;else:
+                                    echo "<span style='margin-left: 20px;margin-right: 20px;'>There are no items to display</span>";endif;?>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

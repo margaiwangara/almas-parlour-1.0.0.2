@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Title</title>
     <style>
         .snackbar-class
@@ -31,6 +32,11 @@
             {
                 $(".snackbar-class").fadeIn(1000).fadeOut(10000);
             })
+
+            $('#somebutton').on('click',function(e)
+            {
+                $(this).toggleClass("btn-success").toggleClass("btn-primary");
+            });
         })
     </script>
 </head>
@@ -44,6 +50,15 @@
         Click Me!
     </button>
 </div>
+<div class="row">
+    <div class="col-md-2">
+        <button class="btn btn-primary" type="button" id="somebutton">
+            <span class="glyphicon glyphicon-search"></span> Button
+        </button>
+    </div>
+</div>
+
+
 
 </body>
 </html>
